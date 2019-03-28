@@ -10,8 +10,29 @@ public class BinaryNode{
 		rightChild = right;
 		leftChild = left;
 	}
-	
-	//toString in GenericNode class
+
+	public String toString(){
+		String rLink = "";
+		String lLink = "";
+		String data = String.valueOf(getData());
+		
+		if(getRightChild() != null){
+			rLink = getRightChild().toString();
+			rLink = "\n  Right Link: " + rLink;
+		}else{
+			rLink = "\n  Right Link: " + rLink;
+		}
+		
+		if(getLeftChild() != null){
+			lLink = getLeftChild().toString();
+			lLink = "\n  Left Link: " + lLink;
+		}else{
+			lLink = "\n  Left Link: " + lLink;
+		}
+			data = "\nData: " + data;
+		
+		return data + rLink + lLink;
+	}
 	
 	public void print(int depth){
 		int i;

@@ -63,7 +63,7 @@ public class TreeFactory {
 		BinaryNode[] binaryArray = binArr;
 		BinaryNode root = null;
 		
-		if(index*2+2 > binaryArray.length || index*2+1 > binaryArray.length){
+		if(index*2+2 > binaryArray.length || index*2+1 > binaryArray.length-1){
 			return root;
 		}
 		root = new BinaryNode(binaryArray[index].getData(), binaryArray[index*2+2], binaryArray[index*2+1]);
@@ -76,16 +76,13 @@ public class TreeFactory {
 	public static void displayTree(BinaryNode root){
 		int depth = findDepth(root);
 		long length = powerOfTwo(depth);
-		BinaryNode curr = root;
+		BinaryNode[] tree = loadToArray(root, new BinaryNode[0], 0);
 		for(int i = 1; i <= depth+1; i++){
-			BinaryNode right = curr.getRightChild();
-			BinaryNode left = curr.getLeftChild();
-			
 			for(int j = 0; j < length; j++){
 				int counter = 0;
 				if(length/powerOfTwo(i) == j || length/powerOfTwo(i)+((length/2)/i)*counter == j){
 					counter++;
-					System.out.println(curr.getData());
+					System.out.println(tree[j].getData());
 				}else{
 					System.out.println(" ");
 				}
